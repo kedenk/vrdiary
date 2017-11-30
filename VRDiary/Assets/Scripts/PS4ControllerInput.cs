@@ -16,7 +16,8 @@ public class PS4ControllerInput : MonoBehaviour {
     void Start () {
 
         string[] jNames = Input.GetJoystickNames();
-        Debug.Log(jNames);
+        foreach(string s in jNames)
+            Debug.Log("Controller connected: " + s);
 	}
 	
 	// Update is called once per frame
