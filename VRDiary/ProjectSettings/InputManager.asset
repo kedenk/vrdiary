@@ -438,7 +438,7 @@ InputManager:
     axis: 7
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_LAnalog
+    m_Name: PS4_LAnalogXAxes
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -451,10 +451,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 2
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_RAnalog
+    m_Name: PS4_LAnalogYAxes
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -465,7 +465,7 @@ InputManager:
     dead: 0.01
     sensitivity: 0.1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 3
+    axis: 2
     joyNum: 0
