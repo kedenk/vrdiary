@@ -5,6 +5,7 @@ using UnityEngine;
 public class ButtonGoScript : MonoBehaviour {
 
     public string character;
+    public string displayedChar; 
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +13,14 @@ public class ButtonGoScript : MonoBehaviour {
         TextMesh textMesh = gameObject.GetComponentInChildren<TextMesh>();
         if (textMesh != null)
         {
-            textMesh.text = character;
+            if( !string.IsNullOrEmpty(displayedChar) )
+            {
+                textMesh.text = displayedChar; 
+            }
+            else
+            {
+                textMesh.text = character;
+            }
         }
     }
 	

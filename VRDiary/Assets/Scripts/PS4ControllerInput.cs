@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class PS4ControllerInput : MonoBehaviour {
 
+    #region events
+
+    public delegate void CharacterInputEventHandler(string c); 
+
+    public event CharacterInputEventHandler onCharInput; 
+
+    #endregion
+
     public enum RotationsAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationsAxes axes = RotationsAxes.MouseXAndY;
     public float sensitivityX = 30F;
@@ -13,6 +21,8 @@ public class PS4ControllerInput : MonoBehaviour {
     public string xAnalogAxesInput;
     public string yAnalogAxesInput;
 
+    #region Materials
+
     public Material highlightedMaterial;
     public Material regularMaterial;
 
@@ -20,7 +30,11 @@ public class PS4ControllerInput : MonoBehaviour {
     public Material blueButtonMaterial;
     public Material yellowButtonMaterial;
     public Material greenButtonMaterial;
-    public Material buttonUnSelectedMaterial; 
+    public Material buttonUnSelectedMaterial;
+
+    #endregion
+
+    #region Categories 
 
     public GameObject categorie1;
     public GameObject categorie2;
@@ -33,13 +47,20 @@ public class PS4ControllerInput : MonoBehaviour {
 
     private List<GameObject> categorieObjList;
 
+    #endregion
+
     private GameObject highlightedGO;
     private Dictionary<string, string> buttonMapping;
+
+    #region Constants
 
     private const string DREIECK_BTN = "Dreieck";
     private const string KREIS_BTN = "Kreis";
     private const string X_BTN = "X";
     private const string VIERECK_BTN = "Viereck";
+
+    #endregion
+
 
     // Use this for initialization
     void Start () {
@@ -67,20 +88,22 @@ public class PS4ControllerInput : MonoBehaviour {
         buttonMapping.Add(X_BTN, "Button3");
         buttonMapping.Add(VIERECK_BTN, "Button4");
 
+        onCharInput += onCharTestMethod; 
+
         dehighlightPlates();
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        for (int i = 0; i < 20; i++)
-        {
-            if (Input.GetKeyDown("joystick 1 button " + i))
-            {
-                // do something
-                Debug.Log("joystick 1 button " + i);
-            }
-        }
+        // comment out for debugging of button numbers
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    if (Input.GetKeyDown("joystick 1 button " + i))
+        //    {
+        //        Debug.Log("joystick 1 button " + i);
+        //    }
+        //}
 
         // Viereck
         if( Input.GetKeyDown("joystick 1 button 0"))
@@ -155,6 +178,8 @@ public class PS4ControllerInput : MonoBehaviour {
         }
     }
 
+    #region private methods
+
     private void handleButtonPress(string button)
     {
         string bName = buttonMapping[button]; 
@@ -166,6 +191,11 @@ public class PS4ControllerInput : MonoBehaviour {
             // corrosponding character of button
             string ch = script.character;
             Debug.Log("Character Input: " + ch);
+
+            if( onCharInput != null )
+            {
+                onCharInput(ch);
+            }
 
             Animator anim = t.gameObject.GetComponent<Animator>(); 
             if( anim != null )
@@ -208,4 +238,15 @@ public class PS4ControllerInput : MonoBehaviour {
             }
         }
     }
+
+    #endregion
+
+    #region testing
+
+    private void onCharTestMethod(string c)
+    {
+        Debug.Log("[TEST] Input recognized: '" + c + "'.");
+    }
+
+    #endregion
 }
