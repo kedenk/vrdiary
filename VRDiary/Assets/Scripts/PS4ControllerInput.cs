@@ -3,13 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ButtonType
+{
+    TRIANGLE, 
+    CIRCLE, 
+    X, 
+    QUADRAT, 
+    R1, 
+    R2, 
+    R3, 
+    L1, 
+    L2, 
+    L3, 
+    OPTIONS, 
+    SHARE, 
+    PS,
+    DPAD
+}
+
 public class PS4ControllerInput : MonoBehaviour {
 
     #region events
 
-    public delegate void CharacterInputEventHandler(string c); 
+    public delegate void CharacterInputEventHandler(string c);
+    public delegate void ControllerButtonPressedHandler(ButtonType bt); 
 
-    public event CharacterInputEventHandler onCharInput; 
+    public event CharacterInputEventHandler onCharInput;
+    public event ControllerButtonPressedHandler onButtonPressed; 
 
     #endregion
 
@@ -88,7 +108,8 @@ public class PS4ControllerInput : MonoBehaviour {
         buttonMapping.Add(X_BTN, "Button3");
         buttonMapping.Add(VIERECK_BTN, "Button4");
 
-        onCharInput += onCharTestMethod; 
+        onCharInput += onCharTestMethod;
+        onButtonPressed += onButtonPressedTestMethod; 
 
         dehighlightPlates();
     }
@@ -96,17 +117,27 @@ public class PS4ControllerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // comment out for debugging of button numbers
-        //for (int i = 0; i < 20; i++)
-        //{
-        //    if (Input.GetKeyDown("joystick 1 button " + i))
-        //    {
-        //        Debug.Log("joystick 1 button " + i);
-        //    }
-        //}
+        //comment out for debugging of button numbers
+        for (int i = 0; i < 20; i++)
+        {
+            string buttonId = "joystick 1 button " + i; 
+            if (Input.GetKeyDown(buttonId))
+            {
+                try
+                {
+                    if (onButtonPressed != null)
+                        onButtonPressed(parseButtonId(buttonId));
+                }
+                catch(Exception e)
+                {
+                    Debug.LogError("Undefined button id. " + e.Message);
+                }
+
+            }
+        }
 
         // Viereck
-        if( Input.GetKeyDown("joystick 1 button 0"))
+        if ( Input.GetKeyDown("joystick 1 button 0"))
         {
             handleButtonPress(VIERECK_BTN);
         }
@@ -196,11 +227,6 @@ public class PS4ControllerInput : MonoBehaviour {
             {
                 onCharInput(ch);
             }
-
-            
-            //Animator anim = t.gameObject.GetComponent<Animator>(); 
-            //if( anim != null )
-            //    t.gameObject.GetComponent<Animator>().Play(Animator.StringToHash("ButtonPress"));
         }
     }
 
@@ -240,13 +266,54 @@ public class PS4ControllerInput : MonoBehaviour {
         }
     }
 
+    private ButtonType parseButtonId(string buttonID)
+    {
+        switch(buttonID)
+        {
+            case "joystick 1 button 0": return ButtonType.QUADRAT; 
+
+            case "joystick 1 button 1": return ButtonType.X;
+
+            case "joystick 1 button 2": return ButtonType.CIRCLE;
+
+            case "joystick 1 button 3": return ButtonType.TRIANGLE;
+
+            case "joystick 1 button 4": return ButtonType.L1;
+
+            case "joystick 1 button 5": return ButtonType.R1;
+
+            case "joystick 1 button 6": return ButtonType.L2;
+
+            case "joystick 1 button 7": return ButtonType.R2;
+
+            case "joystick 1 button 8": return ButtonType.SHARE; 
+
+            case "joystick 1 button 9": return ButtonType.OPTIONS;
+
+            case "joystick 1 button 10": return ButtonType.L3;
+
+            case "joystick 1 button 11": return ButtonType.R3;
+
+            case "joystick 1 button 12": return ButtonType.PS;
+
+            case "joystick 1 button 13": return ButtonType.DPAD; 
+
+            default:
+                throw new Exception("No Enum variable for button id '" + buttonID + "'.");
+        }
+    }
     #endregion
 
     #region testing
 
     private void onCharTestMethod(string c)
     {
-        Debug.Log("[TEST] Input recognized: '" + c + "'.");
+        Debug.Log("[DEBUG] Input recognized: '" + c + "'.");
+    }
+
+    private void onButtonPressedTestMethod(ButtonType bt)
+    {
+        Debug.Log("[DEBUG] Button pressed: '" + bt + "'.");
     }
 
     #endregion
