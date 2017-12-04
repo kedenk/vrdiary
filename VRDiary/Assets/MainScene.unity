@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 7086226}
   - component: {fileID: 7086225}
   - component: {fileID: 7086224}
+  - component: {fileID: 7086228}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -157,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: K
+  displayedChar: 
 --- !u!23 &7086225
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -211,6 +213,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7086222}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &7086228
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7086222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d93d3bbc6ac2cfb4790aeb04f8056524, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &22389527
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +242,7 @@ GameObject:
   - component: {fileID: 22389531}
   - component: {fileID: 22389530}
   - component: {fileID: 22389529}
+  - component: {fileID: 22389533}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -256,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: .
+  displayedChar: 
 --- !u!23 &22389530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -310,6 +331,81 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 22389527}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &22389533
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22389527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e57f878873eaa7428c27c488935eaa9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &49837288
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 614812720}
+    m_Modifications:
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.286
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661120425076686, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_Name
+      value: Button1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.33241063
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.332379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3323791
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8ca095a4c3f80d345b03099dfe9470d1, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &53918355
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +503,7 @@ GameObject:
   - component: {fileID: 68119921}
   - component: {fileID: 68119920}
   - component: {fileID: 68119919}
+  - component: {fileID: 68119923}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -440,6 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: N
+  displayedChar: 
 --- !u!23 &68119920
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -494,6 +592,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 68119917}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &68119923
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 68119917}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5641eb238a21254495fab0767de75a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &169832837
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +621,7 @@ GameObject:
   - component: {fileID: 169832840}
   - component: {fileID: 169832839}
   - component: {fileID: 169832842}
+  - component: {fileID: 169832843}
   m_Layer: 0
   m_Name: Button3
   m_TagString: ControllerButton
@@ -593,6 +709,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: C
+  displayedChar: 
+--- !u!95 &169832843
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 169832837}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c916606d6639ef74bbbe24414969d722, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &210571106
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +739,7 @@ GameObject:
   - component: {fileID: 210571110}
   - component: {fileID: 210571109}
   - component: {fileID: 210571108}
+  - component: {fileID: 210571112}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -638,6 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: ','
+  displayedChar: 
 --- !u!23 &210571109
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -692,6 +828,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 210571106}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &210571112
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210571106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42b60276d453eb64794a8bd895493827, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &223504366
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +857,7 @@ GameObject:
   - component: {fileID: 223504370}
   - component: {fileID: 223504369}
   - component: {fileID: 223504368}
+  - component: {fileID: 223504372}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -737,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: Y
+  displayedChar: 
 --- !u!23 &223504369
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -791,6 +946,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223504366}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &223504372
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 223504366}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f5b6b28defc01444b0f96fbd352fa0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &291851441
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +974,6 @@ GameObject:
   - component: {fileID: 291851445}
   - component: {fileID: 291851444}
   - component: {fileID: 291851443}
-  - component: {fileID: 291851447}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -872,19 +1043,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291851447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291851441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5198b7044dabccd4a8199fdba86c974d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cat: {fileID: 614812719}
-  highlightedMaterial: {fileID: 0}
 --- !u!1 &315279579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1205,7 @@ GameObject:
   - component: {fileID: 333351828}
   - component: {fileID: 333351827}
   - component: {fileID: 333351826}
+  - component: {fileID: 333351830}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -1080,6 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: J
+  displayedChar: 
 --- !u!23 &333351827
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1134,6 +1294,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 333351824}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &333351830
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 333351824}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a44e40ef1f4d6b44683765f3903c22ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &460913248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1323,7 @@ GameObject:
   - component: {fileID: 460913251}
   - component: {fileID: 460913250}
   - component: {fileID: 460913253}
+  - component: {fileID: 460913254}
   m_Layer: 0
   m_Name: Button2
   m_TagString: ControllerButton
@@ -1233,6 +1411,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: B
+  displayedChar: 
+--- !u!95 &460913254
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460913248}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05c9e67742507634d9656638ba56aa9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &469062677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,8 +1602,9 @@ MeshRenderer:
 --- !u!1 &529200528
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 1282739364233148, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 529200529}
@@ -1423,8 +1620,9 @@ GameObject:
 --- !u!4 &529200529
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 4237146559910910, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 529200528}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -1437,8 +1635,9 @@ Transform:
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 102176616790508548, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 529200528}
   m_Text: A
   m_OffsetZ: 0
@@ -1457,8 +1656,9 @@ TextMesh:
 --- !u!23 &529200531
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 23762612915244472, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 529200528}
   m_Enabled: 1
   m_CastShadows: 1
@@ -1585,6 +1785,7 @@ GameObject:
   - component: {fileID: 562432769}
   - component: {fileID: 562432768}
   - component: {fileID: 562432767}
+  - component: {fileID: 562432771}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -1618,6 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: W
+  displayedChar: 
 --- !u!23 &562432768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1672,6 +1874,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562432765}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &562432771
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562432765}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 276d69a37af352d4ca418cdd2aad15bf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &573420170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1988,7 @@ GameObject:
   - component: {fileID: 583472166}
   - component: {fileID: 583472165}
   - component: {fileID: 583472164}
+  - component: {fileID: 583472168}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -1802,6 +2022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: O
+  displayedChar: 
 --- !u!23 &583472165
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1856,6 +2077,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 583472162}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &583472168
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 583472162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14cc5a7964b1e7446860721e888aa899, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &586237311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,6 +2106,7 @@ GameObject:
   - component: {fileID: 586237315}
   - component: {fileID: 586237314}
   - component: {fileID: 586237313}
+  - component: {fileID: 586237317}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -1901,6 +2140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: H
+  displayedChar: 
 --- !u!23 &586237314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1955,6 +2195,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 586237311}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &586237317
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 586237311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64c7afca3679dc54991dc0397b814fe2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &588682491
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2483,7 @@ GameObject:
   - component: {fileID: 634804018}
   - component: {fileID: 634804017}
   - component: {fileID: 634804016}
+  - component: {fileID: 634804020}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -2258,7 +2516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d590df7c432ea419b162a089b634e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: '&'
+  character: ' '
+  displayedChar: "\u02FD"
 --- !u!23 &634804017
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2313,6 +2572,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 634804014}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &634804020
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 634804014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 13cbf66f5889d1f4fb6fe37b059e8334, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &683132564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2601,7 @@ GameObject:
   - component: {fileID: 683132568}
   - component: {fileID: 683132567}
   - component: {fileID: 683132566}
+  - component: {fileID: 683132570}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -2358,6 +2635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: V
+  displayedChar: 
 --- !u!23 &683132567
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2412,6 +2690,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683132564}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &683132570
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683132564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e04855d66219664ebc5466d9d3ab1a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &693234259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,6 +2893,7 @@ GameObject:
   - component: {fileID: 805958075}
   - component: {fileID: 805958074}
   - component: {fileID: 805958073}
+  - component: {fileID: 805958077}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -2631,6 +2927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: I
+  displayedChar: 
 --- !u!23 &805958074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2685,6 +2982,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 805958071}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &805958077
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 805958071}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a24751781a9d51041a02be8bc2603046, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &808520404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2871,6 +3185,7 @@ GameObject:
   - component: {fileID: 820101098}
   - component: {fileID: 820101097}
   - component: {fileID: 820101096}
+  - component: {fileID: 820101100}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -2904,6 +3219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: L
+  displayedChar: 
 --- !u!23 &820101097
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2958,11 +3274,29 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820101094}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &833607849
-GameObject:
+--- !u!95 &820101100
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820101094}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c7472c0edba5ff4b86d5972b328af70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &833607849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1661120425076686, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   serializedVersion: 5
   m_Component:
   - component: {fileID: 833607850}
@@ -2970,6 +3304,7 @@ GameObject:
   - component: {fileID: 833607852}
   - component: {fileID: 833607851}
   - component: {fileID: 833607854}
+  - component: {fileID: 833607855}
   m_Layer: 0
   m_Name: Button1
   m_TagString: ControllerButton
@@ -2980,8 +3315,9 @@ GameObject:
 --- !u!4 &833607850
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 4627695460195362, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 833607849}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.02, y: 1, z: -0.286}
@@ -2994,8 +3330,9 @@ Transform:
 --- !u!23 &833607851
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 23484088572487590, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 833607849}
   m_Enabled: 1
   m_CastShadows: 1
@@ -3028,8 +3365,9 @@ MeshRenderer:
 --- !u!136 &833607852
 CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 136348410457661736, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 833607849}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3041,15 +3379,17 @@ CapsuleCollider:
 --- !u!33 &833607853
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 33323482410611056, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 833607849}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &833607854
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 114919447194442802, guid: 8ca095a4c3f80d345b03099dfe9470d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 49837288}
   m_GameObject: {fileID: 833607849}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3057,6 +3397,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: A
+  displayedChar: 
+--- !u!95 &833607855
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 833607849}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c740137e83c76b547888c873e26341b5, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &900900980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3080,7 +3438,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 900900980}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.12, y: 0.56, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1443531041}
@@ -3310,6 +3668,7 @@ GameObject:
   - component: {fileID: 1044093305}
   - component: {fileID: 1044093304}
   - component: {fileID: 1044093303}
+  - component: {fileID: 1044093307}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -3343,6 +3702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: U
+  displayedChar: 
 --- !u!23 &1044093304
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3397,6 +3757,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1044093301}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1044093307
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1044093301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c96acc6d71770934eaff96db4ac9079d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1046603029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,6 +3786,7 @@ GameObject:
   - component: {fileID: 1046603032}
   - component: {fileID: 1046603031}
   - component: {fileID: 1046603034}
+  - component: {fileID: 1046603035}
   m_Layer: 0
   m_Name: Button4
   m_TagString: ControllerButton
@@ -3496,6 +3874,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: D
+  displayedChar: 
+--- !u!95 &1046603035
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1046603029}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 095ca9cb037828d48809b9f91487dd08, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1073850015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3856,6 +4252,7 @@ GameObject:
   - component: {fileID: 1145709019}
   - component: {fileID: 1145709018}
   - component: {fileID: 1145709017}
+  - component: {fileID: 1145709021}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -3889,6 +4286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: Q
+  displayedChar: 
 --- !u!23 &1145709018
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3943,6 +4341,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145709015}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1145709021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1145709015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c52f73c9df3bd44b9ed7a839ceced66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1183569978
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4540,7 @@ GameObject:
   - component: {fileID: 1211793414}
   - component: {fileID: 1211793413}
   - component: {fileID: 1211793412}
+  - component: {fileID: 1211793416}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -4158,6 +4574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: F
+  displayedChar: 
 --- !u!23 &1211793413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4212,6 +4629,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1211793410}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1211793416
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1211793410}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98e0283fead887c459c2f52e8f0eaf06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1220863179
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,6 +4913,7 @@ GameObject:
   - component: {fileID: 1261769640}
   - component: {fileID: 1261769639}
   - component: {fileID: 1261769638}
+  - component: {fileID: 1261769642}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -4512,6 +4947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: E
+  displayedChar: 
 --- !u!23 &1261769639
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4566,6 +5002,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1261769636}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1261769642
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261769636}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fcc382b0195c29a4297dd4890c00fc4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1268362651
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,6 +5116,7 @@ GameObject:
   - component: {fileID: 1273513372}
   - component: {fileID: 1273513371}
   - component: {fileID: 1273513370}
+  - component: {fileID: 1273513374}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -4696,6 +5150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: Z
+  displayedChar: 
 --- !u!23 &1273513371
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4750,6 +5205,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1273513368}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1273513374
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1273513368}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8ed855c4e3442d4684b8fc8a76f0206, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1306022594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +5323,7 @@ GameObject:
   - component: {fileID: 1350286204}
   - component: {fileID: 1350286203}
   - component: {fileID: 1350286202}
+  - component: {fileID: 1350286206}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -4884,6 +5357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: R
+  displayedChar: 
 --- !u!23 &1350286203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4938,6 +5412,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1350286200}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1350286206
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1350286200}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7211daca55c2ac641875b5512ac68292, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1390402732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,6 +5781,7 @@ GameObject:
   - component: {fileID: 1444688319}
   - component: {fileID: 1444688318}
   - component: {fileID: 1444688317}
+  - component: {fileID: 1444688321}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -5323,6 +5815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: G
+  displayedChar: 
 --- !u!23 &1444688318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5377,6 +5870,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444688315}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1444688321
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444688315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a921d38638931c04fa051d32d793099d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1446452411
 GameObject:
   m_ObjectHideFlags: 0
@@ -5389,6 +5899,7 @@ GameObject:
   - component: {fileID: 1446452415}
   - component: {fileID: 1446452414}
   - component: {fileID: 1446452413}
+  - component: {fileID: 1446452417}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -5422,6 +5933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: X
+  displayedChar: 
 --- !u!23 &1446452414
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5476,6 +5988,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446452411}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1446452417
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446452411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b97501206ccc8647ad5244437961f92, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1468762095
 GameObject:
   m_ObjectHideFlags: 0
@@ -5488,6 +6017,7 @@ GameObject:
   - component: {fileID: 1468762099}
   - component: {fileID: 1468762098}
   - component: {fileID: 1468762097}
+  - component: {fileID: 1468762101}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -5521,6 +6051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: S
+  displayedChar: 
 --- !u!23 &1468762098
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5575,6 +6106,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1468762095}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1468762101
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468762095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f85d0129108dcb448845e8e3b4c953e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1489967773
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,6 +6135,7 @@ GameObject:
   - component: {fileID: 1489967777}
   - component: {fileID: 1489967776}
   - component: {fileID: 1489967775}
+  - component: {fileID: 1489967779}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -5620,6 +6169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: P
+  displayedChar: 
 --- !u!23 &1489967776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5674,6 +6224,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1489967773}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1489967779
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1489967773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9fe85e4899abce478ae1d6c27e6d15b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1543415845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5856,6 +6423,7 @@ GameObject:
   - component: {fileID: 1560728388}
   - component: {fileID: 1560728387}
   - component: {fileID: 1560728386}
+  - component: {fileID: 1560728390}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -5889,6 +6457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: M
+  displayedChar: 
 --- !u!23 &1560728387
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5943,6 +6512,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560728384}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1560728390
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1560728384}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 355a1bc62220bed4b8006a0be76e1b5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1563875396
 GameObject:
   m_ObjectHideFlags: 0
@@ -6044,6 +6630,7 @@ GameObject:
   - component: {fileID: 1570687611}
   - component: {fileID: 1570687610}
   - component: {fileID: 1570687609}
+  - component: {fileID: 1570687613}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -6077,6 +6664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: T
+  displayedChar: 
 --- !u!23 &1570687610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6131,6 +6719,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1570687607}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1570687613
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1570687607}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e24905178a8675a41bd72774b0ff692a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1597887289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,6 +6748,7 @@ GameObject:
   - component: {fileID: 1597887293}
   - component: {fileID: 1597887292}
   - component: {fileID: 1597887291}
+  - component: {fileID: 1597887295}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -6176,6 +6782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: ':'
+  displayedChar: 
 --- !u!23 &1597887292
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6230,6 +6837,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1597887289}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1597887295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1597887289}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cea6f3223315a5141bfa0ebee5534774, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1615391689
 GameObject:
   m_ObjectHideFlags: 0
@@ -6327,6 +6951,7 @@ GameObject:
   - component: {fileID: 1677892728}
   - component: {fileID: 1677892727}
   - component: {fileID: 1677892726}
+  - component: {fileID: 1677892730}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -6360,6 +6985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: '?'
+  displayedChar: 
 --- !u!23 &1677892727
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6414,6 +7040,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1677892724}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1677892730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677892724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47ceec56ab432b643988a7449a191bad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1692430183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,6 +7154,7 @@ GameObject:
   - component: {fileID: 1882985118}
   - component: {fileID: 1882985117}
   - component: {fileID: 1882985116}
+  - component: {fileID: 1882985120}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -6544,6 +7188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: '!'
+  displayedChar: 
 --- !u!23 &1882985117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6598,6 +7243,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882985114}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1882985120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882985114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4731da7846abdc7489dfbe018917328e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1944902469
 GameObject:
   m_ObjectHideFlags: 0

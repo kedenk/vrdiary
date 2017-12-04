@@ -190,16 +190,17 @@ public class PS4ControllerInput : MonoBehaviour {
 
             // corrosponding character of button
             string ch = script.character;
-            Debug.Log("Character Input: " + ch);
+            script.animatePress();
 
-            if( onCharInput != null )
+            if ( onCharInput != null )
             {
                 onCharInput(ch);
             }
 
-            Animator anim = t.gameObject.GetComponent<Animator>(); 
-            if( anim != null )
-                t.gameObject.GetComponent<Animator>().Play(Animator.StringToHash("ButtonPress"));
+            
+            //Animator anim = t.gameObject.GetComponent<Animator>(); 
+            //if( anim != null )
+            //    t.gameObject.GetComponent<Animator>().Play(Animator.StringToHash("ButtonPress"));
         }
     }
 
