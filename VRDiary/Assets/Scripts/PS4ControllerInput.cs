@@ -5,20 +5,20 @@ using UnityEngine;
 
 public enum ButtonType
 {
-    TRIANGLE, 
-    CIRCLE, 
-    X, 
-    QUADRAT, 
-    R1, 
-    R2, 
-    R3, 
-    L1, 
-    L2, 
-    L3, 
-    OPTIONS, 
-    SHARE, 
-    PS,
-    DPAD
+    TRIANGLE = 0,
+    CIRCLE = 1,
+    X = 2,
+    QUADRAT = 3,
+	L1 = 4,
+	L2 = 5,
+	L3 = 6,
+    R1 = 7,
+    R2 = 8,
+    R3 = 9,
+    OPTIONS = 10,
+    SHARE = 11,
+    PS = 12,
+    DPAD = 13
 }
 
 public class PS4ControllerInput : MonoBehaviour {
