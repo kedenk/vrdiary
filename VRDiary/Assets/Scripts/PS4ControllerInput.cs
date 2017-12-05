@@ -209,6 +209,14 @@ public class PS4ControllerInput : MonoBehaviour {
         }
     }
 
+    public void virtualButtonPress(ButtonType bt)
+    {
+        if( onButtonPressed != null )
+        {
+            onButtonPressed(bt);
+        }
+    }
+
     #region private methods
 
     private void handleButtonPress(string button)
