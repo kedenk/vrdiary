@@ -28,10 +28,12 @@ public class PasscodeManager : MonoBehaviour {
 		case ButtonType.QUADRAT:
 			if (currentPasscode.Count <= passcodeLength) {
 				currentPasscode.Add(bt);
+				drawPasscode ();
 			}
 			break;
 		case ButtonType.L1:
 			currentPasscode.RemoveAt(currentPasscode.Count-1);
+			drawPasscode ();
 			break;
 		default:
 			break;
@@ -41,6 +43,10 @@ public class PasscodeManager : MonoBehaviour {
 	void drawPasscode() {
 		for (int i = 0; i < passcodeLength; i++) {
 			keyFields [i].SetActive (i < currentPasscode.Count);
+			if (i < currentPasscode.Count) {
+				keyFields [i].GetComponent<Renderer> ().sharedMaterial.color = Constants.Colors.yellow;
+					
+			}
 		}
 	}
 }
