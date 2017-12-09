@@ -61,24 +61,32 @@ public class PasscodeManager : MonoBehaviour {
 
 			if (i < currentPasscode.Count) {
 				Color color = Constants.Colors.yellow;
-				TextMesh textMesh = keyFields [i].GetComponentInChildren<TextMesh>();;
+				TextMesh[] textMesh = keyFields [i].GetComponentsInChildren<TextMesh>(true);
 
 				switch (currentPasscode[i]) {
 				case ButtonType.TRIANGLE:
 					color = Constants.Colors.yellow;
-					textMesh.text = "△";
+					foreach (TextMesh mesh in textMesh) {
+						mesh.gameObject.SetActive (mesh.text == "△");
+					}
 					break;
 				case ButtonType.CIRCLE:
 					color = Constants.Colors.red;
-					textMesh.text = "○";
+					foreach (TextMesh mesh in textMesh) {
+						mesh.gameObject.SetActive (mesh.text == "○");
+					}
 					break;
 				case ButtonType.X:
 					color = Constants.Colors.green;
-					textMesh.text = "✕";
+					foreach (TextMesh mesh in textMesh) {
+						mesh.gameObject.SetActive (mesh.text == "✕");
+					}
 					break;
 				case ButtonType.QUADRAT:
 					color = Constants.Colors.blue;
-					textMesh.text = "□";
+					foreach (TextMesh mesh in textMesh) {
+						mesh.gameObject.SetActive (mesh.text == "□");
+					}
 					break;
 				default:
 					break;
@@ -92,7 +100,8 @@ public class PasscodeManager : MonoBehaviour {
 	void checkPasscode() {
 		if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userA)) {
 			Debug.Log("Setup userA environment");
-			gameObject.SetActive(false);
+			gameObject.GetComponent<FadeManager> ().Fade (false, 3f);
+			//gameObject.SetActive(false);
 		} else if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userB)) {
 			Debug.Log("Setup userB environment");
 		} else {
