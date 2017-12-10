@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ControllerButton
   - PasscodeWall
+  - environmentA
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 
 public class PasscodeManager : MonoBehaviour {
@@ -8,17 +9,19 @@ public class PasscodeManager : MonoBehaviour {
 
 	public List<GameObject> visualizer = new List<GameObject>();
 	public List<GameObject> keyFields = new List<GameObject>();
+	public GameObject environmentA;
 	//public PS4ControllerInput controllerInput;
 	private List<ButtonType> currentPasscode = new List<ButtonType>();
 	private KeyboardInput keyboardInput;
-	private ButtonGoScript visualizerButtonGoScript;
 
 	// Use this for initialization
 	void Start () {
 		//controllerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PS4ControllerInput>();
 		//controllerInput.onButtonPressed += onButtonPressed;
-		keyboardInput = GameObject. FindGameObjectWithTag("PasscodeWall").GetComponent<KeyboardInput>();
+		keyboardInput = gameObject.GetComponent<KeyboardInput>();
 		keyboardInput.onButtonPressed += onButtonPressed;
+
+		environmentA.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -61,38 +64,32 @@ public class PasscodeManager : MonoBehaviour {
 
 			if (i < currentPasscode.Count) {
 				Color color = Constants.Colors.yellow;
-				TextMesh[] textMesh = keyFields [i].GetComponentsInChildren<TextMesh>(true);
+				string sprite = "Triangle";
 
 				switch (currentPasscode[i]) {
 				case ButtonType.TRIANGLE:
 					color = Constants.Colors.yellow;
-					foreach (TextMesh mesh in textMesh) {
-						mesh.gameObject.SetActive (mesh.text == "△");
-					}
+					sprite = "Triangle";
 					break;
 				case ButtonType.CIRCLE:
 					color = Constants.Colors.red;
-					foreach (TextMesh mesh in textMesh) {
-						mesh.gameObject.SetActive (mesh.text == "○");
-					}
+					sprite = "Circle";
 					break;
 				case ButtonType.X:
 					color = Constants.Colors.green;
-					foreach (TextMesh mesh in textMesh) {
-						mesh.gameObject.SetActive (mesh.text == "✕");
-					}
+					sprite = "Cross";
 					break;
 				case ButtonType.QUADRAT:
 					color = Constants.Colors.blue;
-					foreach (TextMesh mesh in textMesh) {
-						mesh.gameObject.SetActive (mesh.text == "□");
-					}
+					sprite = "Square";
 					break;
 				default:
 					break;
 				}
 
-				keyFields [i].GetComponent<Renderer> ().material.color = color;
+				Sprite[] sprites = Resources.LoadAll<Sprite> ("Sprites");
+				keyFields [i].GetComponentInChildren<SpriteRenderer> ().sprite = sprites.Where(a => a.name == sprite).First();
+				keyFields [i].GetComponent<Renderer>().material.color = color;
 			}
 		}
 	}
@@ -100,8 +97,11 @@ public class PasscodeManager : MonoBehaviour {
 	void checkPasscode() {
 		if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userA)) {
 			Debug.Log("Setup userA environment");
-			gameObject.GetComponent<FadeManager> ().Fade (false, 3f);
-			//gameObject.SetActive(false);
+			Action callback = () => { gameObject.SetActive (false); };
+			gameObject.GetComponent<FadeManager> ().FadeOut (1f, callback);
+			environmentA.SetActive(true);
+//			environmentA.GetComponent<FadeManager> ().FadeIn (3f);
+
 		} else if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userB)) {
 			Debug.Log("Setup userB environment");
 		} else {

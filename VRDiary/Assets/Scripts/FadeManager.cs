@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class FadeManager : MonoBehaviour {
@@ -10,6 +11,7 @@ public class FadeManager : MonoBehaviour {
 	private float transition;
 	private bool isShowing;
 	private float duration;
+	private Action callback;
 
 	private void Awake() {
 		Instance = this;
@@ -25,28 +27,36 @@ public class FadeManager : MonoBehaviour {
 			transition += (isShowing) ? Time.deltaTime * (1 / duration) : -Time.deltaTime * (1 / duration);
 			Renderer[] rendererArray = gameObject.GetComponentsInChildren<Renderer> (true);
 			List<Renderer> rendererList = new List<Renderer> (rendererArray);
-			rendererList.Add(gameObject.GetComponent<Renderer> ());
 
 			foreach (Renderer renderer in rendererList) {
 				Color originalColor = renderer.material.color;
-				originalColor.a = 1;
+				originalColor.a = (isShowing) ? 0 : 1;
 				Color transparentColor = renderer.material.color;
-				transparentColor.a = 0;
+				transparentColor.a = (isShowing) ? 1 : 0;
 				renderer.material.color = Color.Lerp(transparentColor, originalColor, transition);
 			}
 
 			if (transition > 1 || transition < 0) {
 				isInTransition = false;
-				gameObject.SetActive (false);
+				callback ();
 			}
 		}
 	}
 
-	public void Fade(bool showing, float duration) {
+	private void Fade(bool showing, float duration) {
 		
 		isShowing = showing;
 		isInTransition = true;
 		this.duration = duration;
 		transition = (isShowing) ? 0 : 1;
+	}
+
+	public void FadeOut(float duration, Action callback) {
+		this.callback = callback;
+		Fade (false, duration);
+	}
+
+	public void FadeIn(float duration) {
+		Fade (true, duration);
 	}
 }
