@@ -1,8 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+
+public class ControllManager : MonoBehaviour{
+
+
+	private ControllerInputScript inputScript;
+
+	void Start() {
+	}
+
+
+
+}
 
 public class ControllerInputScript : MonoBehaviour {
 
@@ -11,7 +25,12 @@ public class ControllerInputScript : MonoBehaviour {
 	private PS4ControllerInput controllerInput;
 	private InputField inputField;
 
+	public String userText;
+	public String date;
+	public String userID;
+
 	//TODO: save diary|different users|different days
+	//Evtl. save auslagern in eigene klasse
 
 	void Start ()
 	{
@@ -25,21 +44,68 @@ public class ControllerInputScript : MonoBehaviour {
 	void onButtonPressed(ButtonType btn) {
 		switch (btn) {
 		case ButtonType.L1:
-			inputField.text = inputField.text.Remove (inputField.text.Length - 1);
+			if (userText.Length > 0) {
+				userText = userText.Remove (inputField.text.Length - 1);
+			}
+			break;
+		case ButtonType.L2:
+			saveText ();
+			break;
+		case ButtonType.R2:
+			loadText ();
+			break;
+		default:
 			break;
 		}
-
 	}
 
 	void onCharInput(string charInput) {
 		if (charInput != null) {
-			inputField.text += charInput;
+			userText += charInput;
 		}
 	}
 
+	public void saveText(){
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create (Application.persistentDataPath + "/diary.if");
+		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary.if");
+		bf.Serialize(file, new TextField(userText,userID, date));
+		file.Close();
+	}
+
+	public void loadText(){
+		if(File.Exists(Application.persistentDataPath + "/diary.if")) {
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open(Application.persistentDataPath + "/diary.if", FileMode.Open);
+			ControllerInputScript data = (ControllerInputScript)bf.Deserialize(file);
+			file.Close();
+
+			this.userText = data.userText;
+			this.userID = data.userID;
+			this.date = data.date;
+		}
+	}	
+
 	// Update is called once per frame
 	void Update () {
-
-		//input.text += "test " ;
+		if (userText.Length != 0) {
+			inputField.text = userText;
+		}
 	}
+
+
+}
+[System.Serializable]
+public class TextField {
+
+	public String userText;
+	public String userID;
+	public String date;
+
+	public TextField(string userText, string userID, string date) {
+		this.userText = userText;
+		this.userID = userID;
+		this.date = date;
+	}
+
 }
