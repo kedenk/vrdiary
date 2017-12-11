@@ -32,7 +32,11 @@ public class KeyboardController : MonoBehaviour {
         keyMapping.Add(KeyCode.RightArrow, ButtonType.CIRCLE);
         keyMapping.Add(KeyCode.DownArrow, ButtonType.X);
 
-        keyMapping.Add(KeyCode.Backspace, ButtonType.L1); 
+        keyMapping.Add(KeyCode.Backspace, ButtonType.L1);
+        keyMapping.Add(KeyCode.Alpha3, ButtonType.L2);
+        keyMapping.Add(KeyCode.Alpha4, ButtonType.R2);
+        keyMapping.Add(KeyCode.Alpha5, ButtonType.L3);
+        keyMapping.Add(KeyCode.Alpha6, ButtonType.R3);
 
         keyMapping.Add(KeyCode.Escape, ButtonType.SHARE); 
     }
