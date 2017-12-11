@@ -25,9 +25,9 @@ public class ControllerInputScript : MonoBehaviour {
 	private PS4ControllerInput controllerInput;
 	private InputField inputField;
 
-	public String userText;
-	public String date;
-	public String userID;
+	public string userText;
+	public string date;
+	public string userID;
 
 	//TODO: save diary|different users|different days
 	//Evtl. save auslagern in eigene klasse
@@ -39,6 +39,11 @@ public class ControllerInputScript : MonoBehaviour {
 		controllerInput = controller.GetComponent<PS4ControllerInput>();
 		controllerInput.onButtonPressed += onButtonPressed;
 		controllerInput.onCharInput += onCharInput;
+		userID = "Tobi";
+		date = System.DateTime.Now.DayOfWeek.ToString();
+
+		Text placeholder = inputField.placeholder.GetComponent<Text>;
+		placeholder.text = "asdf";
 	}
 
 	void onButtonPressed(ButtonType btn) {
@@ -52,7 +57,7 @@ public class ControllerInputScript : MonoBehaviour {
 			saveText ();
 			break;
 		case ButtonType.R2:
-			loadText ();
+			loadText (date, userID);
 			break;
 		default:
 			break;
@@ -67,16 +72,16 @@ public class ControllerInputScript : MonoBehaviour {
 
 	public void saveText(){
 		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create (Application.persistentDataPath + "/diary.if");
-		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary.if");
+		FileStream file = File.Create (Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
+		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
 		bf.Serialize(file, new TextField(userText,userID, date));
 		file.Close();
 	}
 
-	public void loadText(){
-		if(File.Exists(Application.persistentDataPath + "/diary.if")) {
+	public void loadText(string date, string userID){
+		if(File.Exists(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/diary.if", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if", FileMode.Open);
 			ControllerInputScript data = (ControllerInputScript)bf.Deserialize(file);
 			file.Close();
 
