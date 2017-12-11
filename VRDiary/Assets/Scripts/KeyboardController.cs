@@ -19,33 +19,36 @@ public class KeyboardController : MonoBehaviour {
     float rotationY = 0.0f;
     float rotationX = 0.0f;
 
+    Dictionary<KeyCode, ButtonType> keyMapping; 
+
     // Use this for initialization
     void Start () {
         controllerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PS4ControllerInput>();
+
+        keyMapping = new Dictionary<KeyCode, ButtonType>(); 
+
+        keyMapping.Add(KeyCode.UpArrow, ButtonType.TRIANGLE);
+        keyMapping.Add(KeyCode.LeftArrow, ButtonType.QUADRAT);
+        keyMapping.Add(KeyCode.RightArrow, ButtonType.CIRCLE);
+        keyMapping.Add(KeyCode.DownArrow, ButtonType.X);
+
+        keyMapping.Add(KeyCode.Backspace, ButtonType.L1); 
+
+        keyMapping.Add(KeyCode.Escape, ButtonType.SHARE); 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.LeftArrow))
+        //
+        // Check for key presses
+        // 
+        foreach(KeyCode kc in keyMapping.Keys)
         {
-            controllerInput.virtualButtonPress(ButtonType.QUADRAT);
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            controllerInput.virtualButtonPress(ButtonType.TRIANGLE);
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            controllerInput.virtualButtonPress(ButtonType.CIRCLE);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            controllerInput.virtualButtonPress(ButtonType.X);
+            if( Input.GetKeyDown(kc) && controllerInput != null)
+            {
+                controllerInput.virtualButtonPress(keyMapping[kc]);
+            }
         }
 
         //
@@ -58,7 +61,8 @@ public class KeyboardController : MonoBehaviour {
             rotationY = Mathf.Clamp(rotationY, minY, maxY);
             
             mainCamera.transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
-        } else
+        }
+        else
         {
             mainCamera.transform.localEulerAngles = new Vector3(0, 0, 0);
         }

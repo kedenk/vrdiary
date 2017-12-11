@@ -53,6 +53,11 @@ public class PasscodeManager : MonoBehaviour {
 			}
 			drawPasscode ();
 			break;
+
+        case ButtonType.SHARE:
+            logout();
+            break;
+
 		default:
 			break;
 		}
@@ -108,4 +113,22 @@ public class PasscodeManager : MonoBehaviour {
 			Debug.Log("Wrong Passcode");
 		}
 	}
+
+    public void logout()
+    {
+        // only logout if we are in an environment
+        if (!gameObject.activeInHierarchy)
+        {
+            Debug.Log("logout");
+
+            gameObject.SetActive(true);
+            environmentA.SetActive(false);
+
+            currentPasscode.Clear();
+
+            gameObject.GetComponent<FadeManager>().FadeIn(1f, null);
+
+            drawPasscode();
+        }
+    }
 }

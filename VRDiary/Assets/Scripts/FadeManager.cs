@@ -33,12 +33,18 @@ public class FadeManager : MonoBehaviour {
 				originalColor.a = (isShowing) ? 0 : 1;
 				Color transparentColor = renderer.material.color;
 				transparentColor.a = (isShowing) ? 1 : 0;
-				renderer.material.color = Color.Lerp(transparentColor, originalColor, transition);
+
+                if (isShowing)
+                    renderer.material.color = Color.Lerp(originalColor, transparentColor, transition);
+                else
+				    renderer.material.color = Color.Lerp(transparentColor, originalColor, transition);
 			}
 
 			if (transition > 1 || transition < 0) {
 				isInTransition = false;
-				callback ();
+
+                if(callback != null)
+				    callback ();
 			}
 		}
 	}
@@ -56,7 +62,8 @@ public class FadeManager : MonoBehaviour {
 		Fade (false, duration);
 	}
 
-	public void FadeIn(float duration) {
-		Fade (true, duration);
-	}
+	public void FadeIn(float duration, Action callback) {
+        this.callback = callback; 
+        Fade (true, duration);
+    }
 }
