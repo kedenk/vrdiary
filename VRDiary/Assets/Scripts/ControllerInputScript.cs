@@ -42,8 +42,8 @@ public class ControllerInputScript : MonoBehaviour {
 		userID = "Tobi";
 		date = System.DateTime.Now.DayOfWeek.ToString();
 
-		Text placeholder = inputField.placeholder.GetComponent<Text>;
-		placeholder.text = "asdf";
+		Text placeholder = inputField.placeholder.GetComponent<Text>();
+		placeholder.text = userID + "; " + date;
 	}
 
 	void onButtonPressed(ButtonType btn) {
@@ -82,12 +82,13 @@ public class ControllerInputScript : MonoBehaviour {
 		if(File.Exists(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if")) {
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if", FileMode.Open);
-			ControllerInputScript data = (ControllerInputScript)bf.Deserialize(file);
+			TextField data = (TextField)bf.Deserialize(file);
 			file.Close();
 
 			this.userText = data.userText;
 			this.userID = data.userID;
 			this.date = data.date;
+			Debug.Log (userText);
 		}
 	}	
 
@@ -95,6 +96,7 @@ public class ControllerInputScript : MonoBehaviour {
 	void Update () {
 		if (userText.Length != 0) {
 			inputField.text = userText;
+			Debug.Log (userText);
 		}
 	}
 
