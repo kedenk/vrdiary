@@ -43,7 +43,7 @@ public class ButtonGoScript : MonoBehaviour {
         if( anim != null )
         {
             anim.Rebind();
-            anim.SetTrigger(buttonPressHash);
+            //anim.SetTrigger(buttonPressHash);
         }
         else
         {

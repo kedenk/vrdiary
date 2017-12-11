@@ -10,14 +10,14 @@ public class PasscodeManager : MonoBehaviour {
 	public List<GameObject> visualizer = new List<GameObject>();
 	public List<GameObject> keyFields = new List<GameObject>();
 	public GameObject environmentA;
-	//public PS4ControllerInput controllerInput;
+	public PS4ControllerInput controllerInput;
 	private List<ButtonType> currentPasscode = new List<ButtonType>();
 	private KeyboardInput keyboardInput;
 
 	// Use this for initialization
 	void Start () {
-		//controllerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PS4ControllerInput>();
-		//controllerInput.onButtonPressed += onButtonPressed;
+		controllerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PS4ControllerInput>();
+		controllerInput.onButtonPressed += onButtonPressed;
 		keyboardInput = gameObject.GetComponent<KeyboardInput>();
 		keyboardInput.onButtonPressed += onButtonPressed;
 
