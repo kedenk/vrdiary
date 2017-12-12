@@ -130,6 +130,7 @@ public class PS4ControllerInput : MonoBehaviour {
         //androidKeyMapping.Add("joystick 1 button 9", ButtonType.);
         androidKeyMapping.Add("joystick 1 button 10", ButtonType.R3);
         androidKeyMapping.Add("joystick 1 button 11", ButtonType.L3);
+		androidKeyMapping.Add("joystick 1 button 12", ButtonType.PS);
         androidKeyMapping.Add("joystick 1 button 13", ButtonType.CIRCLE);
         androidKeyMapping.Add("joystick 1 button 14", ButtonType.R1);
     }
