@@ -53,7 +53,7 @@ public class PasscodeManager : MonoBehaviour {
 			drawPasscode ();
 			break;
 
-        case ButtonType.SHARE:
+        case ButtonType.PS:
             logout();
             break;
 
