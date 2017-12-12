@@ -14,14 +14,11 @@ public class PasscodeManager : MonoBehaviour {
 	public AudioClip successSound;
 	public AudioClip failSound;
 	private List<ButtonType> currentPasscode = new List<ButtonType>();
-	private KeyboardInput keyboardInput;
 
 	// Use this for initialization
 	void Start () {
 		controllerInput = GameObject.FindGameObjectWithTag("GameController").GetComponent<PS4ControllerInput>();
 		controllerInput.onButtonPressed += onButtonPressed;
-		keyboardInput = gameObject.GetComponent<KeyboardInput>();
-		keyboardInput.onButtonPressed += onButtonPressed;
 
 		environmentA.SetActive (false);
 	}

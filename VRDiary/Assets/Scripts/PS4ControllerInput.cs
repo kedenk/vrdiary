@@ -81,6 +81,9 @@ public class PS4ControllerInput : MonoBehaviour {
 
     #endregion
 
+    Dictionary<string, ButtonType> androidKeyMapping;
+    Dictionary<string, ButtonType> computerKeyMapping; 
+
 
     // Use this for initialization
     void Start () {
@@ -112,6 +115,23 @@ public class PS4ControllerInput : MonoBehaviour {
         onButtonPressed += onButtonPressedTestMethod; 
 
         dehighlightPlates();
+
+        androidKeyMapping = new Dictionary<string, ButtonType>();
+
+        androidKeyMapping.Add("joystick 1 button 0", ButtonType.QUADRAT);
+        androidKeyMapping.Add("joystick 1 button 1", ButtonType.X);
+        androidKeyMapping.Add("joystick 1 button 2", ButtonType.TRIANGLE);
+        androidKeyMapping.Add("joystick 1 button 3", ButtonType.L1);
+        androidKeyMapping.Add("joystick 1 button 4", ButtonType.L2);
+        androidKeyMapping.Add("joystick 1 button 5", ButtonType.R2);
+        androidKeyMapping.Add("joystick 1 button 6", ButtonType.SHARE);
+        androidKeyMapping.Add("joystick 1 button 7", ButtonType.OPTIONS);
+        androidKeyMapping.Add("joystick 1 button 8", ButtonType.DPAD);
+        //androidKeyMapping.Add("joystick 1 button 9", ButtonType.);
+        androidKeyMapping.Add("joystick 1 button 10", ButtonType.R3);
+        androidKeyMapping.Add("joystick 1 button 11", ButtonType.L3);
+        androidKeyMapping.Add("joystick 1 button 13", ButtonType.CIRCLE);
+        androidKeyMapping.Add("joystick 1 button 14", ButtonType.R1);
     }
 	
 	// Update is called once per frame
@@ -149,13 +169,13 @@ public class PS4ControllerInput : MonoBehaviour {
         }
 
         // Kreis
-        if (Input.GetKeyDown("joystick 1 button 2"))
+        if (Input.GetKeyDown("joystick 1 button 13"))
         {
             handleButtonPress(KREIS_BTN);
         }
 
         // Dreieck
-        if (Input.GetKeyDown("joystick 1 button 3"))
+        if (Input.GetKeyDown("joystick 1 button 2"))
         {
             handleButtonPress(DREIECK_BTN);
         }
@@ -276,7 +296,22 @@ public class PS4ControllerInput : MonoBehaviour {
 
     private ButtonType parseButtonId(string buttonID)
     {
-        switch(buttonID)
+
+        #if UNITY_ANDROID
+
+        if( androidKeyMapping.ContainsKey(buttonID) )
+        {
+            return androidKeyMapping[buttonID]; 
+        }
+        else
+        {
+            throw new Exception("No Enum variable for button id '" + buttonID + "'.");
+        }
+
+        #else
+
+
+        switch (buttonID)
         {
             case "joystick 1 button 0": return ButtonType.QUADRAT; 
 
@@ -309,10 +344,12 @@ public class PS4ControllerInput : MonoBehaviour {
             default:
                 throw new Exception("No Enum variable for button id '" + buttonID + "'.");
         }
-    }
-    #endregion
 
-    #region testing
+        #endif
+    }
+#endregion
+
+#region testing
 
     private void onCharTestMethod(string c)
     {
@@ -324,5 +361,5 @@ public class PS4ControllerInput : MonoBehaviour {
         Debug.Log("[DEBUG] Button pressed: '" + bt + "'.");
     }
 
-    #endregion
+#endregion
 }
