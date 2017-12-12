@@ -49,8 +49,8 @@ public class ControllerInputScript : MonoBehaviour {
 	void onButtonPressed(ButtonType btn) {
 		switch (btn) {
 		case ButtonType.L1:
-			if (userText.Length > 0) {
-				userText = userText.Remove (inputField.text.Length - 1);
+			if (inputField.text.Length > 0) {
+				inputField.text = inputField.text.Remove (inputField.text.Length - 1);
 			}
 			break;
 		case ButtonType.L2:
@@ -66,7 +66,7 @@ public class ControllerInputScript : MonoBehaviour {
 
 	void onCharInput(string charInput) {
 		if (charInput != null) {
-			userText += charInput;
+			inputField.text += charInput;
 		}
 	}
 
@@ -74,7 +74,7 @@ public class ControllerInputScript : MonoBehaviour {
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create (Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
 		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
-		bf.Serialize(file, new TextField(userText,userID, date));
+		bf.Serialize(file, new TextField(inputField.text,userID, date));
 		file.Close();
 	}
 
@@ -85,7 +85,7 @@ public class ControllerInputScript : MonoBehaviour {
 			TextField data = (TextField)bf.Deserialize(file);
 			file.Close();
 
-			this.userText = data.userText;
+			inputField.text = data.userText;
 			this.userID = data.userID;
 			this.date = data.date;
 			Debug.Log (userText);
@@ -94,10 +94,10 @@ public class ControllerInputScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (userText.Length != 0) {
-			inputField.text = userText;
-			Debug.Log (userText);
-		}
+		//if (userText.Length != 0) {
+			//inputField.text = userText;
+		//	Debug.Log (userText);
+		//}
 	}
 
 
