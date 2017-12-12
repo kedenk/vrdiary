@@ -10,6 +10,7 @@ public class PasscodeManager : MonoBehaviour {
 	public List<GameObject> visualizer = new List<GameObject>();
 	public List<GameObject> keyFields = new List<GameObject>();
 	public GameObject environmentA;
+	public GameObject environmentB;
 	private PS4ControllerInput controllerInput;
 	public AudioClip successSound;
 	public AudioClip failSound;
@@ -21,6 +22,7 @@ public class PasscodeManager : MonoBehaviour {
 		controllerInput.onButtonPressed += onButtonPressed;
 
 		environmentA.SetActive (false);
+		environmentB.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -109,6 +111,10 @@ public class PasscodeManager : MonoBehaviour {
 
 		} else if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userB)) {
 			Debug.Log("Setup userB environment");
+			Action callback = () => { gameObject.SetActive (false); };
+			gameObject.GetComponent<FadeManager> ().FadeOut (1f, callback);
+			environmentB.SetActive(true);
+			environmentB.GetComponent<FadeManager> ().FadeIn (6f, null);
 			AudioSource.PlayClipAtPoint (successSound, transform.position);
 		} else {
 			Debug.Log("Wrong Passcode");
@@ -125,6 +131,7 @@ public class PasscodeManager : MonoBehaviour {
 
             gameObject.SetActive(true);
             environmentA.SetActive(false);
+			environmentB.SetActive(false);
 
             currentPasscode.Clear();
 

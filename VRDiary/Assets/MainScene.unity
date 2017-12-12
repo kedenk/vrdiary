@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964127, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -4535,7 +4535,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 900900980}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.4143, y: -0.2317, z: 0.591}
+  m_LocalPosition: {x: -0.038, y: -0.165, z: 0.591}
   m_LocalScale: {x: 0.047553048, y: 0.047553048, z: 0.023776524}
   m_Children:
   - {fileID: 1443531041}
@@ -5290,7 +5290,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1113211629
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7010,7 +7010,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1390402735
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7266,6 +7266,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420391832}
+--- !u!1 &1421763357 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
+  m_PrefabInternal: {fileID: 1965117232}
 --- !u!1 &1429926232
 GameObject:
   m_ObjectHideFlags: 0
@@ -8275,7 +8279,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &1545107561
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9054,6 +9058,7 @@ MonoBehaviour:
   - {fileID: 150164803}
   - {fileID: 1713350636}
   environmentA: {fileID: 1777231018}
+  environmentB: {fileID: 1421763357}
   successSound: {fileID: 8300000, guid: 5e94dd60eb24746b5a0ba79974ac5fd8, type: 3}
   failSound: {fileID: 8300000, guid: 8cde7ceb0aa644e14a44068c26eb8b89, type: 3}
 --- !u!114 &1624693392
@@ -10376,7 +10381,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -10401,6 +10406,10 @@ Prefab:
     - target: {fileID: 400000, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
+      propertyPath: m_TagString
+      value: environmentB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
@@ -10824,7 +10833,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
 --- !u!23 &2073889553
 MeshRenderer:
   m_ObjectHideFlags: 0

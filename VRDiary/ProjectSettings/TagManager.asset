@@ -7,6 +7,7 @@ TagManager:
   - ControllerButton
   - PasscodeWall
   - environmentA
+  - environmentB
   layers:
   - Default
   - TransparentFX
