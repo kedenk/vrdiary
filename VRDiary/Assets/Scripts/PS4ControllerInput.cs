@@ -70,19 +70,14 @@ public class PS4ControllerInput : MonoBehaviour {
     #endregion
 
     private GameObject highlightedGO;
-    private Dictionary<string, string> buttonMapping;
+    private Dictionary<ButtonType, string> buttonMapping;
+    private Dictionary<string, ButtonType> keyMapping;
 
     #region Constants
 
-    private const string DREIECK_BTN = "Dreieck";
-    private const string KREIS_BTN = "Kreis";
-    private const string X_BTN = "X";
-    private const string VIERECK_BTN = "Viereck";
+    private const int catButtonCount = 4; 
 
     #endregion
-
-    Dictionary<string, ButtonType> androidKeyMapping;
-    Dictionary<string, ButtonType> computerKeyMapping; 
 
 
     // Use this for initialization
@@ -105,38 +100,72 @@ public class PS4ControllerInput : MonoBehaviour {
         categorieObjList.Add(categorie7);
         categorieObjList.Add(categorie8);
 
-        buttonMapping = new Dictionary<string, string>();
-        buttonMapping.Add(DREIECK_BTN, "Button1");
-        buttonMapping.Add(KREIS_BTN, "Button2");
-        buttonMapping.Add(X_BTN, "Button3");
-        buttonMapping.Add(VIERECK_BTN, "Button4");
+        buttonMapping = new Dictionary<ButtonType, string>();
+        buttonMapping.Add(ButtonType.TRIANGLE, "Button1");
+        buttonMapping.Add(ButtonType.CIRCLE, "Button2");
+        buttonMapping.Add(ButtonType.X, "Button3");
+        buttonMapping.Add(ButtonType.QUADRAT, "Button4");
 
         onCharInput += onCharTestMethod;
         onButtonPressed += onButtonPressedTestMethod; 
 
         dehighlightPlates();
 
-        androidKeyMapping = new Dictionary<string, ButtonType>();
+        keyMapping = new Dictionary<string, ButtonType>();
 
-        androidKeyMapping.Add("joystick 1 button 0", ButtonType.QUADRAT);
-        androidKeyMapping.Add("joystick 1 button 1", ButtonType.X);
-        androidKeyMapping.Add("joystick 1 button 2", ButtonType.TRIANGLE);
-        androidKeyMapping.Add("joystick 1 button 3", ButtonType.L1);
-        androidKeyMapping.Add("joystick 1 button 4", ButtonType.L2);
-        androidKeyMapping.Add("joystick 1 button 5", ButtonType.R2);
-        androidKeyMapping.Add("joystick 1 button 6", ButtonType.SHARE);
-        androidKeyMapping.Add("joystick 1 button 7", ButtonType.OPTIONS);
-        androidKeyMapping.Add("joystick 1 button 8", ButtonType.DPAD);
+#if UNITY_ANDROID
+        
+        //
+        // Do here Android related things only
+        // 
+
+        Debug.Log("Android environment detected"); 
+
+        keyMapping.Add("joystick 1 button 0", ButtonType.QUADRAT);
+        keyMapping.Add("joystick 1 button 1", ButtonType.X);
+        keyMapping.Add("joystick 1 button 2", ButtonType.TRIANGLE);
+        keyMapping.Add("joystick 1 button 3", ButtonType.L1);
+        keyMapping.Add("joystick 1 button 4", ButtonType.L2);
+        keyMapping.Add("joystick 1 button 5", ButtonType.R2);
+        keyMapping.Add("joystick 1 button 6", ButtonType.SHARE);
+        keyMapping.Add("joystick 1 button 7", ButtonType.OPTIONS);
+        keyMapping.Add("joystick 1 button 8", ButtonType.DPAD);
         //androidKeyMapping.Add("joystick 1 button 9", ButtonType.);
-        androidKeyMapping.Add("joystick 1 button 10", ButtonType.R3);
-        androidKeyMapping.Add("joystick 1 button 11", ButtonType.L3);
-		androidKeyMapping.Add("joystick 1 button 12", ButtonType.PS);
-        androidKeyMapping.Add("joystick 1 button 13", ButtonType.CIRCLE);
-        androidKeyMapping.Add("joystick 1 button 14", ButtonType.R1);
+        keyMapping.Add("joystick 1 button 10", ButtonType.R3);
+        keyMapping.Add("joystick 1 button 11", ButtonType.L3);
+		keyMapping.Add("joystick 1 button 12", ButtonType.PS);
+        keyMapping.Add("joystick 1 button 13", ButtonType.CIRCLE);
+        keyMapping.Add("joystick 1 button 14", ButtonType.R1);
+
+#endif
+#if UNITY_STANDALONE
+
+        //
+        // Do here Computer plattform things only
+        // 
+
+        Debug.Log("Computer detected");
+
+        keyMapping.Add("joystick 1 button 0", ButtonType.QUADRAT);
+        keyMapping.Add("joystick 1 button 1", ButtonType.X);
+        keyMapping.Add("joystick 1 button 3", ButtonType.TRIANGLE);
+        keyMapping.Add("joystick 1 button 4", ButtonType.L1);
+        keyMapping.Add("joystick 1 button 6", ButtonType.L2);
+        keyMapping.Add("joystick 1 button 5", ButtonType.R1);
+        keyMapping.Add("joystick 1 button 7", ButtonType.R2);
+        keyMapping.Add("joystick 1 button 8", ButtonType.SHARE);
+        keyMapping.Add("joystick 1 button 9", ButtonType.OPTIONS);
+        keyMapping.Add("joystick 1 button 13", ButtonType.DPAD);
+        keyMapping.Add("joystick 1 button 11", ButtonType.R3);
+        keyMapping.Add("joystick 1 button 10", ButtonType.L3);
+        keyMapping.Add("joystick 1 button 12", ButtonType.PS);
+        keyMapping.Add("joystick 1 button 2", ButtonType.CIRCLE);
+
+#endif
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 
         //comment out for debugging of button numbers
         for (int i = 0; i < 20; i++)
@@ -157,28 +186,20 @@ public class PS4ControllerInput : MonoBehaviour {
             }
         }
 
-        // Viereck
-        if ( Input.GetKeyDown("joystick 1 button 0"))
+        //
+        // Observe standard selection keys
+        //
+        foreach(ButtonType bt in buttonMapping.Keys)
         {
-            handleButtonPress(VIERECK_BTN);
+            if (Input.GetKeyDown(getKeyMappingKey(bt)))
+            {
+                handleButtonPress(buttonMapping[bt]);
+            }
         }
 
-        // X
-        if (Input.GetKeyDown("joystick 1 button 1"))
+        if( Input.GetKeyDown( getKeyMappingKey(ButtonType.R3)) )
         {
-            handleButtonPress(X_BTN);
-        }
-
-        // Kreis
-        if (Input.GetKeyDown("joystick 1 button 13"))
-        {
-            handleButtonPress(KREIS_BTN);
-        }
-
-        // Dreieck
-        if (Input.GetKeyDown("joystick 1 button 2"))
-        {
-            handleButtonPress(DREIECK_BTN);
+            toggleButtonChar();
         }
 
 
@@ -238,18 +259,17 @@ public class PS4ControllerInput : MonoBehaviour {
         }
     }
 
-    #region private methods
+#region private methods
 
-    private void handleButtonPress(string button)
+    private void handleButtonPress(string buttonName)
     {
-        string bName = buttonMapping[button]; 
-        if( bName != null && highlightedGO != null)
+        if(buttonName != null && highlightedGO != null)
         {
-            Transform t = highlightedGO.transform.Find(bName);
+            Transform t = highlightedGO.transform.Find(buttonName);
             ButtonGoScript script = t.gameObject.GetComponent<ButtonGoScript>();
 
             // corrosponding character of button
-            string ch = script.character;
+            string ch = script.getCurrentChar();
             script.animatePress();
 
             if ( onCharInput != null )
@@ -261,6 +281,8 @@ public class PS4ControllerInput : MonoBehaviour {
 
     private void highlightPlate(GameObject categorie)
     {
+        showControllerPanel(true);
+
         if (categorie == null)
             throw new Exception("Parameter is null"); 
 
@@ -279,6 +301,8 @@ public class PS4ControllerInput : MonoBehaviour {
 
     private void dehighlightPlates()
     {
+        showControllerPanel(false);
+
         highlightedGO = null; 
         foreach (GameObject obj in categorieObjList)
         {
@@ -286,7 +310,7 @@ public class PS4ControllerInput : MonoBehaviour {
             {
                 obj.GetComponent<Renderer>().material = regularMaterial;
 
-                for (int i = 1; i <= 4; i++)
+                for (int i = 1; i <= catButtonCount; i++)
                 {
                     Transform t = obj.transform.Find("Button" + i);
                     t.GetComponent<Renderer>().material = buttonUnSelectedMaterial;
@@ -295,59 +319,61 @@ public class PS4ControllerInput : MonoBehaviour {
         }
     }
 
+    private void showControllerPanel(Boolean show)
+    {
+        Renderer[] renderer = gameObject.GetComponentsInChildren<Renderer>(true); 
+        foreach(Renderer r in renderer)
+        {
+            r.enabled = show; 
+        }
+    }
+
     private ButtonType parseButtonId(string buttonID)
     {
 
-        #if UNITY_ANDROID
-
-        if( androidKeyMapping.ContainsKey(buttonID) )
+        if( keyMapping.ContainsKey(buttonID) )
         {
-            return androidKeyMapping[buttonID]; 
+            return keyMapping[buttonID]; 
         }
         else
         {
             throw new Exception("No Enum variable for button id '" + buttonID + "'.");
         }
+    }
 
-        #else
-
-
-        switch (buttonID)
+    private string getKeyMappingKey(ButtonType value)
+    {
+        foreach(string key in keyMapping.Keys)
         {
-            case "joystick 1 button 0": return ButtonType.QUADRAT; 
-
-            case "joystick 1 button 1": return ButtonType.X;
-
-            case "joystick 1 button 2": return ButtonType.CIRCLE;
-
-            case "joystick 1 button 3": return ButtonType.TRIANGLE;
-
-            case "joystick 1 button 4": return ButtonType.L1;
-
-            case "joystick 1 button 5": return ButtonType.R1;
-
-            case "joystick 1 button 6": return ButtonType.L2;
-
-            case "joystick 1 button 7": return ButtonType.R2;
-
-            case "joystick 1 button 8": return ButtonType.SHARE; 
-
-            case "joystick 1 button 9": return ButtonType.OPTIONS;
-
-            case "joystick 1 button 10": return ButtonType.L3;
-
-            case "joystick 1 button 11": return ButtonType.R3;
-
-            case "joystick 1 button 12": return ButtonType.PS;
-
-            case "joystick 1 button 13": return ButtonType.DPAD; 
-
-            default:
-                throw new Exception("No Enum variable for button id '" + buttonID + "'.");
+            if( keyMapping[key] == value)
+            {
+                return key; 
+            }
         }
 
-        #endif
+        return null; 
     }
+
+    private void toggleButtonChar()
+    {
+        foreach (GameObject categorie in categorieObjList)
+        {
+            for (int i = 1; i <= catButtonCount; i++)
+            {
+                try
+                {
+                    Transform t = categorie.transform.Find("Button" + i);
+                    ButtonGoScript script = t.gameObject.GetComponent<ButtonGoScript>();
+
+                    script.toggleChars();
+                } catch(Exception e)
+                {
+                    Debug.LogError(e.Message);
+                }
+            }
+        }
+    }
+
 #endregion
 
 #region testing

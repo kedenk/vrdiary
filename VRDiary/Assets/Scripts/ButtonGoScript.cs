@@ -5,24 +5,29 @@ using UnityEngine;
 public class ButtonGoScript : MonoBehaviour {
 
     public string character;
+    public string characterBig; 
     public string displayedChar;
 
     private Animator anim;
     private int buttonPressHash = Animator.StringToHash("ButtonPress");
 
-	// Use this for initialization
-	void Start () {
+    private TextMesh textMesh; 
 
-        TextMesh textMesh = gameObject.GetComponentInChildren<TextMesh>();
+    // Use this for initialization
+    void Start () {
+
+        textMesh = gameObject.GetComponentInChildren<TextMesh>();
+
         if (textMesh != null)
         {
-            if( !string.IsNullOrEmpty(displayedChar) )
+            textMesh.color = Color.black;
+            if ( !string.IsNullOrEmpty(displayedChar) )
             {
                 textMesh.text = displayedChar; 
             }
             else
             {
-                textMesh.text = character;
+                textMesh.text = characterBig;
             }
         }
 
@@ -33,6 +38,15 @@ public class ButtonGoScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    /// <summary>
+    /// Returns the current visualized character
+    /// </summary>
+    /// <returns></returns>
+    public string getCurrentChar()
+    {
+        return textMesh.text;
+    }
 
     /// <summary>
     /// Animates the button. 
@@ -48,6 +62,22 @@ public class ButtonGoScript : MonoBehaviour {
         else
         {
             throw new System.Exception("No Animator assigned to button"); 
+        }
+    }
+
+    public void toggleChars()
+    {
+        string current = textMesh.text; 
+        if ( !current.Equals(displayedChar) && !string.IsNullOrEmpty(character) && !string.IsNullOrEmpty(characterBig) )
+        {
+            if( current.Equals(character) )
+            {
+                textMesh.text = characterBig; 
+            }
+            else
+            {
+                textMesh.text = character; 
+            }
         }
     }
 }

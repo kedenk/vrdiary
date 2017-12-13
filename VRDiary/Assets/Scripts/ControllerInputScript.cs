@@ -53,11 +53,14 @@ public class ControllerInputScript : MonoBehaviour {
 				inputField.text = inputField.text.Remove (inputField.text.Length - 1);
 			}
 			break;
-		case ButtonType.L2:
+        case ButtonType.R1:
+                inputField.text += " ";
+                break;
+		case ButtonType.SHARE:
 			saveText ();
 			break;
-		case ButtonType.R2:
-			loadText (date, userID);
+		case ButtonType.OPTIONS:
+            loadText (date, userID);
 			break;
 		default:
 			break;
