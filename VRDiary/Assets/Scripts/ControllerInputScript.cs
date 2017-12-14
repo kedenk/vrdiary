@@ -26,8 +26,9 @@ public class ControllerInputScript : MonoBehaviour {
 	private InputField inputField;
 
 	public string userText;
-	public string date;
+	public DateTime date;
 	public string userID;
+	public DateTime currentDate;
 
 	//TODO: save diary|different users|different days
 	//Evtl. save auslagern in eigene klasse
@@ -40,8 +41,8 @@ public class ControllerInputScript : MonoBehaviour {
 		controllerInput.onButtonPressed += onButtonPressed;
 		controllerInput.onCharInput += onCharInput;
 		userID = "Tobi";
-		date = System.DateTime.Now.DayOfWeek.ToString();
-
+		date = System.DateTime.Now;
+		currentDate = date;
 		Text placeholder = inputField.placeholder.GetComponent<Text>();
 		placeholder.text = userID + "; " + date;
 	}
@@ -60,8 +61,12 @@ public class ControllerInputScript : MonoBehaviour {
 			saveText ();
 			break;
 		case ButtonType.OPTIONS:
-            loadText (date, userID);
+            loadText (currentDate, userID);
 			break;
+		//case ButtonType.DateChangeButton: TBD
+		//	currentDate = currentDate.Add(new TimeSpan(24,0,0));
+		//	loadText (currentDate, userID);
+        //	break;
 		default:
 			break;
 		}
@@ -74,23 +79,25 @@ public class ControllerInputScript : MonoBehaviour {
 	}
 
 	public void saveText(){
+		string d_string = currentDate.DayOfWeek.ToString();
 		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create (Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
-		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if");
-		bf.Serialize(file, new TextField(inputField.text,userID, date));
+		FileStream file = File.Create (Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if");
+		Debug.Log ("File saved at " + Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if");
+		bf.Serialize(file, new TextField(inputField.text,userID, currentDate));
 		file.Close();
 	}
 
-	public void loadText(string date, string userID){
-		if(File.Exists(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if")) {
+	public void loadText(DateTime currentDate, string userID){
+		string d_string = currentDate.DayOfWeek.ToString();
+		if(File.Exists(Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if")) {
 			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/diary_" + date + "_" + userID + ".if", FileMode.Open);
+			FileStream file = File.Open(Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if", FileMode.Open);
 			TextField data = (TextField)bf.Deserialize(file);
 			file.Close();
 
 			inputField.text = data.userText;
 			this.userID = data.userID;
-			this.date = data.date;
+			this.currentDate = data.currentDate;
 			Debug.Log (userText);
 		}
 	}	
@@ -110,12 +117,12 @@ public class TextField {
 
 	public String userText;
 	public String userID;
-	public String date;
+	public DateTime currentDate;
 
-	public TextField(string userText, string userID, string date) {
+	public TextField(string userText, string userID, DateTime currentDate) {
 		this.userText = userText;
 		this.userID = userID;
-		this.date = date;
+		this.currentDate = currentDate;
 	}
 
 }
