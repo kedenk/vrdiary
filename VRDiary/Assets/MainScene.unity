@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.4964127, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1452,8 +1452,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 271401222}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.24, y: -0.54, z: 0.6}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 0.07, y: 1.03, z: 0.6}
+  m_LocalScale: {x: 0.005, y: 0.01, z: 0.4}
   m_Children: []
   m_Father: {fileID: 343067562}
   m_RootOrder: 1
@@ -1465,14 +1465,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 271401222}
-  m_Text: Space
+  m_Text: "\u2423"
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 64
   m_LineSpacing: 1
   m_Anchor: 0
   m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 0
+  m_TabSize: 0
+  m_FontSize: 32
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -5309,8 +5309,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1014628006}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.5, y: -0.54, z: 0.6}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 0.57, y: -0.44, z: 0.6}
+  m_LocalScale: {x: 0.005, y: 0.01, z: 0.4}
   m_Children: []
   m_Father: {fileID: 1682847858}
   m_RootOrder: 1
@@ -5322,14 +5322,14 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1014628006}
-  m_Text: Backspace
+  m_Text: "\u232B"
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 32
   m_LineSpacing: 1
   m_Anchor: 0
-  m_Alignment: 0
+  m_Alignment: 2
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 32
   m_FontStyle: 1
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -7982,6 +7982,17 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: ce25f8b213561e34fbe293347a87fff5, type: 3}
   m_PrefabInternal: {fileID: 1965117232}
+--- !u!114 &1421763358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421763357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bb28ffedeb743febcb55304ac51e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1429926232
 GameObject:
   m_ObjectHideFlags: 0
@@ -9496,7 +9507,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 900900980}
   userText: 
-  date: 
   userID: 
 --- !u!114 &1579087102
 MonoBehaviour:
@@ -10268,7 +10278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 900900980}
   userText: 
-  date: 
   userID: 
 --- !u!1 &1647973675
 GameObject:
