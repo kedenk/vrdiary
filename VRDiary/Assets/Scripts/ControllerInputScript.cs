@@ -30,6 +30,10 @@ public class ControllerInputScript : MonoBehaviour {
 	public string userID;
 	public DateTime currentDate;
 
+	private Text placeholder;
+
+	public Text dateDisplay;
+
 	//TODO: save diary|different users|different days
 	//Evtl. save auslagern in eigene klasse
 
@@ -43,11 +47,21 @@ public class ControllerInputScript : MonoBehaviour {
 		userID = "Tobi";
 		date = System.DateTime.Now;
 		currentDate = date;
-		Text placeholder = inputField.placeholder.GetComponent<Text>();
-		placeholder.text = userID + "; " + date;
+		placeholder = inputField.placeholder.GetComponent<Text>();
+		for (int i = 0; i < 7; i++) {
+			currentDate = currentDate.AddDays (1.0d);
+			string d_string = currentDate.DayOfWeek.ToString();
+			if (!File.Exists (Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if")) {
+				saveText ();
+			} else {
+				loadText (currentDate, userID);
+			}
+		}
+		currentDate = date;
 	}
 
 	void onButtonPressed(ButtonType btn) {
+		string d_string = currentDate.DayOfWeek.ToString();
 		switch (btn) {
 		case ButtonType.L1:
 			if (inputField.text.Length > 0) {
@@ -63,10 +77,16 @@ public class ControllerInputScript : MonoBehaviour {
 		case ButtonType.OPTIONS:
             loadText (currentDate, userID);
 			break;
-		//case ButtonType.DateChangeButton: TBD
-		//	currentDate = currentDate.Add(new TimeSpan(24,0,0));
-		//	loadText (currentDate, userID);
-        //	break;
+		case ButtonType.R2:
+			saveText ();
+			currentDate = currentDate.AddDays (1.0d);
+			loadText (currentDate, userID);
+			break;
+		case ButtonType.L2:
+			saveText ();
+			currentDate = currentDate.AddDays(-1.0d);
+			loadText (currentDate, userID);
+			break;
 		default:
 			break;
 		}
@@ -94,20 +114,20 @@ public class ControllerInputScript : MonoBehaviour {
 			FileStream file = File.Open(Application.persistentDataPath + "/diary_" + d_string + "_" + userID + ".if", FileMode.Open);
 			TextField data = (TextField)bf.Deserialize(file);
 			file.Close();
-
-			inputField.text = data.userText;
+			if (data.userText != null) {
+				inputField.text = data.userText;
+			} else {
+				inputField.text = "";
+			}
 			this.userID = data.userID;
 			this.currentDate = data.currentDate;
-			Debug.Log (userText);
 		}
 	}	
 
 	// Update is called once per frame
 	void Update () {
-		//if (userText.Length != 0) {
-			//inputField.text = userText;
-		//	Debug.Log (userText);
-		//}
+		placeholder.text = userID + "; " + currentDate.DayOfWeek.ToString();
+		dateDisplay.text = placeholder.text;
 	}
 
 
