@@ -44,7 +44,7 @@ public class ControllerInputScript : MonoBehaviour {
 		controllerInput = controller.GetComponent<PS4ControllerInput>();
 		controllerInput.onButtonPressed += onButtonPressed;
 		controllerInput.onCharInput += onCharInput;
-		userID = "Tobi";
+		//userID = "Tobi";
 		date = System.DateTime.Now;
 		currentDate = date;
 		placeholder = inputField.placeholder.GetComponent<Text>();
@@ -60,7 +60,19 @@ public class ControllerInputScript : MonoBehaviour {
 		currentDate = date;
 	}
 
-	void onButtonPressed(ButtonType btn) {
+    private void OnEnable()
+    {
+        controllerInput.onButtonPressed += onButtonPressed;
+        controllerInput.onCharInput += onCharInput;
+    }
+
+    private void OnDisable()
+    {
+        controllerInput.onButtonPressed -= onButtonPressed;
+        controllerInput.onCharInput -= onCharInput;
+    }
+
+    void onButtonPressed(ButtonType btn) {
 		string d_string = currentDate.DayOfWeek.ToString();
 		switch (btn) {
 		case ButtonType.L1:
@@ -92,8 +104,9 @@ public class ControllerInputScript : MonoBehaviour {
 		}
 	}
 
-	void onCharInput(string charInput) {
-		if (charInput != null) {
+    void onCharInput(string charInput) {
+		if (charInput != null ) {
+            Debug.Log("textfield (" + userID + "): " + charInput);
 			inputField.text += charInput;
 		}
 	}

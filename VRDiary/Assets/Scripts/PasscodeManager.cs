@@ -131,15 +131,13 @@ public class PasscodeManager : MonoBehaviour {
 
     private void setCamera(GameObject env)
     {
-        Constants.CameraSetting cs = Constants.EnvCameraSettings.getEnvCameraSetting(env.name);
-        CameraConfig cameraScript = Camera.main.GetComponent<CameraConfig>();
-        cameraScript.setCamera(cs.pos, cs.scale);
+        setCamera(env.name);
     }
 
     private void setCamera(string envName)
     {
         Constants.CameraSetting cs = Constants.EnvCameraSettings.getEnvCameraSetting(envName);
-        CameraConfig cameraScript = Camera.main.GetComponent<CameraConfig>();
+        CameraConfig cameraScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CameraConfig>();
         cameraScript.setCamera(cs.pos, cs.scale);
     }
 
