@@ -124,11 +124,23 @@ public class PasscodeManager : MonoBehaviour {
         env.GetComponent<FadeManager>().FadeIn(6f, null);
 
         //set camera
+        setCamera(env);
+
+        AudioSource.PlayClipAtPoint(successSound, transform.position);
+    }
+
+    private void setCamera(GameObject env)
+    {
         Constants.CameraSetting cs = Constants.EnvCameraSettings.getEnvCameraSetting(env.name);
         CameraConfig cameraScript = Camera.main.GetComponent<CameraConfig>();
         cameraScript.setCamera(cs.pos, cs.scale);
+    }
 
-        AudioSource.PlayClipAtPoint(successSound, transform.position);
+    private void setCamera(string envName)
+    {
+        Constants.CameraSetting cs = Constants.EnvCameraSettings.getEnvCameraSetting(envName);
+        CameraConfig cameraScript = Camera.main.GetComponent<CameraConfig>();
+        cameraScript.setCamera(cs.pos, cs.scale);
     }
 
     public void logout()
@@ -147,6 +159,8 @@ public class PasscodeManager : MonoBehaviour {
             gameObject.GetComponent<FadeManager>().FadeIn(1f, null);
 
             drawPasscode();
+
+            setCamera("std");
         }
     }
 }
