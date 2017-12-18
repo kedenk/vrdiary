@@ -63,10 +63,14 @@ public class ControllerInputScript : MonoBehaviour {
 		case ButtonType.OPTIONS:
             loadText (currentDate, userID);
 			break;
-		//case ButtonType.DateChangeButton: TBD
-		//	currentDate = currentDate.Add(new TimeSpan(24,0,0));
-		//	loadText (currentDate, userID);
-        //	break;
+        case ButtonType.L2:
+            currentDate = currentDate.Subtract(new TimeSpan(1, 0, 0, 0));
+            loadText(currentDate, userID);
+            break;
+		case ButtonType.R2: 
+			currentDate = currentDate.Add(new TimeSpan(24,0,0));
+			loadText (currentDate, userID);
+        	break;
 		default:
 			break;
 		}

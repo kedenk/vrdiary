@@ -38,7 +38,7 @@ public class KeyboardController : MonoBehaviour {
         keyMapping.Add(KeyCode.Alpha5, ButtonType.L3);
         keyMapping.Add(KeyCode.Alpha6, ButtonType.R3);
 
-        keyMapping.Add(KeyCode.Escape, ButtonType.SHARE); 
+        keyMapping.Add(KeyCode.Escape, ButtonType.PS); 
     }
 
     // Update is called once per frame

@@ -102,25 +102,34 @@ public class PasscodeManager : MonoBehaviour {
 
 	void checkPasscode() {
 		if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userA)) {
-			Debug.Log("Setup userA environment");
-			Action callback = () => { gameObject.SetActive (false); };
-			gameObject.GetComponent<FadeManager> ().FadeOut (1f, callback);
-			environmentA.SetActive(true);
-			environmentA.GetComponent<FadeManager> ().FadeIn (6f, null);
-			AudioSource.PlayClipAtPoint (successSound, transform.position);
 
-		} else if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userB)) {
-			Debug.Log("Setup userB environment");
-			Action callback = () => { gameObject.SetActive (false); };
-			gameObject.GetComponent<FadeManager> ().FadeOut (1f, callback);
-			environmentB.SetActive(true);
-			environmentB.GetComponent<FadeManager> ().FadeIn (6f, null);
-			AudioSource.PlayClipAtPoint (successSound, transform.position);
+            setupEnv(environmentA);
+
+        } else if (Enumerable.SequenceEqual(currentPasscode, Constants.Passcodes.userB)) {
+
+            setupEnv(environmentB);
+
 		} else {
 			Debug.Log("Wrong Passcode");
 			AudioSource.PlayClipAtPoint (failSound, transform.position);
 		}
 	}
+
+    void setupEnv(GameObject env)
+    {
+        Debug.Log("Setup env " + env.name);
+        Action callback = () => { gameObject.SetActive(false); };
+        gameObject.GetComponent<FadeManager>().FadeOut(1f, callback);
+        env.SetActive(true);
+        env.GetComponent<FadeManager>().FadeIn(6f, null);
+
+        //set camera
+        Constants.CameraSetting cs = Constants.EnvCameraSettings.getEnvCameraSetting(env.name);
+        CameraConfig cameraScript = Camera.main.GetComponent<CameraConfig>();
+        cameraScript.setCamera(cs.pos, cs.scale);
+
+        AudioSource.PlayClipAtPoint(successSound, transform.position);
+    }
 
     public void logout()
     {
