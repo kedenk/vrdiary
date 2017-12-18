@@ -62,14 +62,20 @@ public class ControllerInputScript : MonoBehaviour {
 
     private void OnEnable()
     {
-        controllerInput.onButtonPressed += onButtonPressed;
-        controllerInput.onCharInput += onCharInput;
+        if (controllerInput != null)
+        {
+            controllerInput.onButtonPressed += onButtonPressed;
+            controllerInput.onCharInput += onCharInput;
+        }
     }
 
     private void OnDisable()
     {
-        controllerInput.onButtonPressed -= onButtonPressed;
-        controllerInput.onCharInput -= onCharInput;
+        if (controllerInput != null)
+        {
+            controllerInput.onButtonPressed -= onButtonPressed;
+            controllerInput.onCharInput -= onCharInput;
+        }
     }
 
     void onButtonPressed(ButtonType btn) {
